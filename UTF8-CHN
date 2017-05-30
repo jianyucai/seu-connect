@@ -1,0 +1,14 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import re
+import sys
+
+def main(argv):
+#print argv
+#print argv[1].encode('utf-8')
+    sys.stdout.write(re.sub(r'\\u\w{4}',
+                    lambda e: unichr(int(e.group(0)[2:], 16)).encode('utf-8'),
+                    argv[1]))
+
+if __name__ == '__main__':
+    main(sys.argv)
