@@ -3,9 +3,8 @@
 import re
 import sys
 
+# convert utf-8 string to CHN string
 def main(argv):
-#print argv
-#print argv[1].encode('utf-8')
     sys.stdout.write(re.sub(r'\\u\w{4}',
                     lambda e: unichr(int(e.group(0)[2:], 16)).encode('utf-8'),
                     argv[1]))
